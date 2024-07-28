@@ -57,3 +57,4 @@ def generate_response(session_id: str, user_input: str):
     ])
 
     return response
+

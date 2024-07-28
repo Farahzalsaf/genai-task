@@ -29,3 +29,4 @@ if prompt := st.chat_input():
     response = get_response(prompt, session_id)
     st.session_state.messages.append({"role": "assistant", "content": response})
     st.chat_message("assistant").write(response)
+

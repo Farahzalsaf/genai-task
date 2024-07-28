@@ -37,7 +37,6 @@ def suppress_output():
         finally:
             sys.stdout = old_stdout
             sys.stderr = old_stderr
-
 def store_books_in_vectorDB():
     model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -75,7 +74,6 @@ def store_books_in_vectorDB():
         print(f"Error occurred while adding documents: {e}")
 
     return "Documents added to the collection successfully."
-
 def add_book_to_vectorDB(title, authors, categories, description):
     text = f"{title} {authors} {categories} {description}"
     model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -95,7 +93,6 @@ def add_book_to_vectorDB(title, authors, categories, description):
             ids=[title],
             metadatas=[metadata]
         )
-
 def similarity_text(query_text: str):
     print(f"Querying for text: {query_text}")
     results = collection.query(
@@ -151,6 +148,4 @@ def search_books(query: str):
             books.append(book)
     print(f"Books found: {books}")
     return books
-
-
 

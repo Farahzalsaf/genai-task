@@ -1,9 +1,9 @@
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
-from app.chatbot import Chatbot
+from fastapi.staticfiles import StaticFiles
+from chatbot import Chatbot
 from vectorstore import get_books, search_books
-from typing import List
 
 app = FastAPI()
 chatbot = Chatbot()
@@ -15,6 +15,9 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all methods
     allow_headers=["*"],  # Allow all headers
 )
+
+# Mount the frontend directory to serve static files
+app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
 
 @app.get("/books")
 async def list_books():
