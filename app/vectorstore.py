@@ -40,7 +40,7 @@ def suppress_output():
 def store_books_in_vectorDB():
     model = SentenceTransformer('all-MiniLM-L6-v2')
 
-    df = pd.read_csv("books_cleaned.csv", usecols=['title', 'authors', 'categories', 'description','thumbnail'])
+    df = pd.read_csv("books_cleaned.csv", usecols=['title', 'authors', 'categories', 'description'])
     documents = []
     embeddings_list = []
     IDs = []
@@ -56,8 +56,7 @@ def store_books_in_vectorDB():
             'title': row['title'],
             'authors': row['authors'],
             'categories': row['categories'],
-            'description': row['description'],
-            'thumbnail' : row ['thumbnail']
+            'description': row['description']
         }
         metadatas.append(metadata)
 
@@ -148,4 +147,3 @@ def search_books(query: str):
             books.append(book)
     print(f"Books found: {books}")
     return books
-
