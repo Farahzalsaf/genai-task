@@ -11,6 +11,8 @@ class Book(BaseModel):
     authors: str
     categories: str
     description: str
+    thumbnail: str
+
 # Initialize the ChromaDB PersistentClient
 client = chromadb.PersistentClient(
     path="chroma_db", 
@@ -19,12 +21,8 @@ client = chromadb.PersistentClient(
     database=DEFAULT_DATABASE,
 )
 collection = client.get_or_create_collection(name="collection_name")
-"""Created a Context Manager (suppress_output):
 
-This context manager redirects the standard output and standard error to /dev/null, effectively suppressing any print statements within its block.
-Used suppress_output Context Manager:
-
-The collection.add call is wrapped in the suppress_output context manager to suppress the "Add of existing embedding ID" messages."""
+# Created a Context Manager (suppress_output):
 @contextlib.contextmanager
 def suppress_output():
     with open('/dev/null', 'w') as devnull:
@@ -37,10 +35,11 @@ def suppress_output():
         finally:
             sys.stdout = old_stdout
             sys.stderr = old_stderr
+
 def store_books_in_vectorDB():
     model = SentenceTransformer('all-MiniLM-L6-v2')
 
-    df = pd.read_csv("books_cleaned.csv", usecols=['title', 'authors', 'categories', 'description'])
+    df = pd.read_csv("books_cleaned.csv", usecols=['title', 'authors', 'categories', 'description', 'thumbnail'])
     documents = []
     embeddings_list = []
     IDs = []
@@ -56,7 +55,8 @@ def store_books_in_vectorDB():
             'title': row['title'],
             'authors': row['authors'],
             'categories': row['categories'],
-            'description': row['description']
+            'description': row['description'],
+            'thumbnail': row['thumbnail']
         }
         metadatas.append(metadata)
 
@@ -73,7 +73,8 @@ def store_books_in_vectorDB():
         print(f"Error occurred while adding documents: {e}")
 
     return "Documents added to the collection successfully."
-def add_book_to_vectorDB(title, authors, categories, description):
+
+def add_book_to_vectorDB(title, authors, categories, description, thumbnail):
     text = f"{title} {authors} {categories} {description}"
     model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -82,7 +83,8 @@ def add_book_to_vectorDB(title, authors, categories, description):
         'title': title,
         'authors': authors,
         'categories': categories,
-        'description': description
+        'description': description,
+        'thumbnail': thumbnail
     }
 
     with suppress_output():
@@ -92,6 +94,7 @@ def add_book_to_vectorDB(title, authors, categories, description):
             ids=[title],
             metadatas=[metadata]
         )
+
 def similarity_text(query_text: str):
     print(f"Querying for text: {query_text}")
     results = collection.query(
@@ -104,8 +107,8 @@ def similarity_text(query_text: str):
 
 def get_books():
     results = collection.query(
-        query_texts=[''],  # Assuming this fetches all books
-        n_results=10000,  # Adjust as needed
+        query_texts=[''], 
+        n_results=3000,  
         include=['metadatas']
     )
     books = []

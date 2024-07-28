@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 bookItem.innerHTML = `
                     <div class="book-box">
                         <div class="book-cover">
-                            <img src="${metadata.thumbnail || 'https://via.placeholder.com/150'}" alt="${metadata.title}">
+                            <img src="${metadata.thumbnail}" alt="${metadata.title}">
                         </div>
                         <div class="book-title">${metadata.title}</div>
                     </div>
