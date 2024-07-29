@@ -4089,6 +4089,20 @@ mpmath = ">=1.1.0,<1.4"
 dev = ["hypothesis (>=6.70.0)", "pytest (>=7.1.0)"]
 
 [[package]]
+name = "tailwind"
+version = "3.1.5b0"
+description = "Python wrapper for Tailwind CSS v3.1.5."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "tailwind-3.1.5b0-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:6baf950e4487794df56db3c2f749d2d35c91e9ac54cacd82220d91a199b19c40"},
+    {file = "tailwind-3.1.5b0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:0934b76c6afb45e0601a4acc4ef7d57701249978c53d6ccff4ea0c85263369cf"},
+    {file = "tailwind-3.1.5b0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_24_aarch64.whl", hash = "sha256:97974629edd0ce595794fdb40d3318c259e7992d67461949cb5687d1ab9faf48"},
+    {file = "tailwind-3.1.5b0-py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:f61e4a1dd2d43076af818fa8281f2624a34c3d4d8aed2045538f03cfdfde438a"},
+    {file = "tailwind-3.1.5b0-py3-none-win_amd64.whl", hash = "sha256:96fcb172730926c48c5a6e35d614259b00e35c89805932e0b671239504d13acb"},
+]
+
+[[package]]
 name = "tbb"
 version = "2021.13.0"
 description = "Intel® oneAPI Threading Building Blocks (oneTBB)"
@@ -5083,4 +5097,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "16cc236063511b69615ef4427f6076239f44d56bb98e1839ef3f707c419f1f76"
+content-hash = "a004210cc16ad3ebe25fd915a003f300253b141bec4ddf0af8de90329e55346c"
