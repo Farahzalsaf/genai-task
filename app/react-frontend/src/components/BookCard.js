@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BookCard = ({ book }) => {
   return (
@@ -13,6 +14,13 @@ const BookCard = ({ book }) => {
       </div>
     </div>
   );
+};
+
+BookCard.propTypes = {
+  book: PropTypes.shape({
+    thumbnail: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default BookCard;

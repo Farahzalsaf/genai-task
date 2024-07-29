@@ -1,5 +1,5 @@
-// src/components/SearchBar.js
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SearchBar = ({ query, setQuery, onSearch }) => {
   return (
@@ -19,6 +19,12 @@ const SearchBar = ({ query, setQuery, onSearch }) => {
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  query: PropTypes.string.isRequired,
+  setQuery: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
