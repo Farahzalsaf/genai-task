@@ -122,9 +122,7 @@ def get_books():
     return books
 
 def update_book(title, new_data):
-    # Delete the old entry
     collection.delete(ids=[title])
-    # Add new entry
     add_book_to_vectorDB(**new_data)
     return "Book updated successfully!"
 

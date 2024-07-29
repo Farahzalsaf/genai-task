@@ -63,11 +63,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 const bookItem = document.createElement('div');
                 bookItem.classList.add('book-item');
                 bookItem.innerHTML = `
-                    <div class="book-box">
+                    <div class="card">
+                        <div class="bg"></div>
+                        <div class="blob"></div>
                         <div class="book-cover">
                             <img src="${metadata.thumbnail}" alt="${metadata.title}">
                         </div>
-                        <div class="book-title">${metadata.title}</div>
+                        <p class="heading">${metadata.title}</p>
                     </div>
                 `;
                 bookGrid.appendChild(bookItem);
