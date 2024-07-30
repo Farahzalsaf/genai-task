@@ -33,6 +33,7 @@ langchain-core = "^0.2.23"
 transformers = "^4.43.2"
 langgraph = "^0.1.14"
 fastapi-cors = "^0.0.6"
+tailwind = "^3.1.5b0"
 
 [tool.pytest.ini_options]
 pythonpath = [

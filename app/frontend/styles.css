@@ -14,43 +14,31 @@
     display: flex;
     justify-content: center;
     width: 50%;
+    position: relative;
 }
 .search-bar input {
     width: 80%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.button {
-    position: relative;
-    width: 200px;
-    height: 50px;
     border-radius: 14px;
     z-index: 1111;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
     box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-left: 10px;
     background-color: #fff;
     border: none;
-    font-size: 19px;
-    color: black;
+    position: relative;
+    margin-right: 10px;
 }
-.button:hover {
+.search-bar input:focus {
     transform: translateY(-5px);
     box-shadow: 20px 20px 60px #adadad, -20px -20px 60px #ffffff;
 }
-.button .bg {
+.search-bar .bg, .button .bg {
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 190px;
-    height: 40px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
     z-index: 0;
     background: rgba(255, 255, 255, .95);
     backdrop-filter: blur(24px);
@@ -58,7 +46,7 @@
     overflow: hidden;
     outline: 2px solid white;
 }
-.button .blob {
+.search-bar .blob, .button .blob {
     position: absolute;
     z-index: -1;
     top: 50%;
@@ -70,6 +58,29 @@
     opacity: 1;
     filter: blur(12px);
     animation: blob-bounce 5s infinite ease;
+    transform: translate(-50%, -50%);
+}
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 14px;
+    z-index: 1111;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    border: none;
+    position: relative;
+    font-size: 19px;
+    color: black;
+}
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 20px 20px 60px #adadad, -20px -20px 60px #ffffff;
 }
 .book-grid {
     display: flex;

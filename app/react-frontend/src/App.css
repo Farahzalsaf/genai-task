@@ -1,0 +1,216 @@
+.page-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  position: relative;
+}
+
+.search-bar input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 14px;
+  z-index: 1111;
+  overflow: hidden;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  background-color: #fff;
+  border: none;
+  position: relative;
+  margin-right: 10px;
+}
+
+.search-bar input:focus {
+  transform: translateY(-5px);
+  box-shadow: 20px 20px 60px #adadad, -20px -20px 60px #ffffff;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 14px;
+  z-index: 1111;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  border: none;
+  position: relative;
+  font-size: 19px;
+  color: black;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+  box-shadow: 20px 20px 60px #adadad, -20px -20px 60px #ffffff;
+}
+
+.button .bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  z-index: 0;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: 2px solid white;
+}
+
+.button .blob {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ff0000;
+  opacity: 1;
+  filter: blur(12px);
+  animation: blob-bounce 5s infinite ease;
+  transform: translate(-50%, -50%);
+}
+.book-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+.book-item {
+  margin: 10px;
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  border-radius: 14px;
+  z-index: 1111;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 10px 10px 40px #adadad, -10px -10px 40px #ffffff;
+}
+
+.bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 190px;
+  height: 240px;
+  z-index: 2;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: 2px solid white;
+}
+
+.blob {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ff0000;
+  opacity: 1;
+  filter: blur(12px);
+  animation: blob-bounce 5s infinite ease;
+}
+
+.book-cover {
+  z-index: 2;
+}
+
+.heading {
+  z-index: 2;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.loader {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+
+.spinner {
+  width: 3em;
+  height: 3em;
+  cursor: not-allowed;
+  border-radius: 50%;
+  border: 2px solid #444;
+  box-shadow: -10px -10px 10px #6359f8, 0px -10px 10px 0px #9c32e2, 10px -10px 10px #f36896, 10px 0 10px #ff0b0b, 10px 10px 10px 0px #ff5500, 0 10px 10px 0px #ff9500, -10px 10px 10px 0px #ffb700;
+  animation: rot55 0.7s linear infinite;
+  position: center;
+}
+
+.spinnerin {
+  border: 2px solid #444;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  position: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rot55 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+  }
+  50% {
+    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+  }
+  75% {
+    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+  }
+  100% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+}

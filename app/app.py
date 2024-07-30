@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 from chatbot import Chatbot
 from vectorstore import get_books, search_books
 
@@ -18,6 +19,18 @@ app.add_middleware(
 
 # Mount the frontend directory to serve static files
 app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
+
+class ChatRequest(BaseModel):
+    session_id: str
+    query: str
+
+class ChatResponse(BaseModel):
+    response: str
+
+@app.post("/chat", response_model=ChatResponse)
+async def chat(request: ChatRequest):
+    response = chatbot.handle_query(request.session_id, request.query)
+    return ChatResponse(response=response)
 
 @app.get("/books")
 async def list_books():
