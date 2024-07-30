@@ -18,7 +18,7 @@ const BookCard = ({ book }) => {
 
 BookCard.propTypes = {
   book: PropTypes.shape({
-    thumbnail: PropTypes.string.isRequired,
+    thumbnail: PropTypes.element.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
 };
