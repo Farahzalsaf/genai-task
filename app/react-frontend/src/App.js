@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import SearchBar from './components/SearchBar';
-import BookCard from './components/BookCard';
-import Loader from './components/Loader';
+import SearchBar from './components/SearchBar.jsx';
+import BookCard from './components/BookCard.jsx';
+import Loader from './components/Loader.jsx';
 import './App.css';
 
 function App() {
